@@ -1,5 +1,7 @@
-const apiKey = "";
-const apiCountryURL = "https://countryflagsapi.com/png/";
+
+const apiKey = "404f6168e19b56633768fab7a710c136";
+const apiCountryURL = "https://flagsapi.com/";
+const apiRestURL =  "/flat/64.png";
 const apiUnsplash = "https://source.unsplash.com/1600x900/?";
 
 const cityInput = document.querySelector("#city-input");
@@ -68,12 +70,13 @@ const showWeatherData = async (city) => {
     "src",
     `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
   );
-  countryElement.setAttribute("src", apiCountryURL + data.sys.country);
+
+countryElement.setAttribute("src", apiCountryURL + data.sys.country + apiRestURL );
   umidityElement.innerText = `${data.main.humidity}%`;
   windElement.innerText = `${data.wind.speed}km/h`;
 
   // Change bg image
-  document.body.style.backgroundImage = `url("${apiUnsplash + city}")`;
+  document.body.style.backgroundImage = `url("${apiUnsplash + city }")`;
 
   weatherContainer.classList.remove("hide");
 };
